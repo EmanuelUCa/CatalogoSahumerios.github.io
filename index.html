@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Sahumerios</title>
+  <style>
+
+    header {
+    background: #3a6351;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: relative;
+    }
+
+    header .logo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 140px;   /* podés ajustar el tamaño */
+    height: auto;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e6f2f0;
+      color: #333;
+    }
+
+    header {
+      background: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #ffffffd9;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: #2e7d32;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #4f4f4f;
+    }
+
+    .price {
+      margin-top: 0.8rem;
+      font-weight: bold;
+      color: #00897b;
+    }
+
+    .btn {
+      margin-top: 10px;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #4db6ac;
+      color: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00897b;
+    }
+
+    #carrito {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    #carrito h2 {
+      text-align: center;
+      color: #2e7d32;
+    }
+
+    #items {
+      margin-top: 1rem;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #items th, #items td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    #total {
+      text-align: right;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background: #b2dfdb;
+      font-size: 0.9rem;
+      color: #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Sahumerios</h1>
+        <p>Aromas para equilibrar tu energía ✨</p>
+        <img src="Logo KVB sobre fondo verde salvia.png" alt="Logo KVB" class="logo">
+      </header>
+      
+  <main>
+    <div class="card">
+      <img src="https://graciadivina.com.ar/wp-content/uploads/2023/05/Sahumerio-Tibetano-de-Sandalo-Hindu-Purificacion-Aromanza.jpg" alt="Sahumerio de Sándalo">
+      <div class="card-content">
+        <h3>Sándalo</h3>
+        <p>Aroma cálido y relajante, ideal para meditar.</p>
+        <div class="price">$800</div>
+        <button class="btn" onclick="agregarAlCarrito('Sándalo', 800)">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFKEcM1pXfGjswfcUKJVqcpQ4Ej-D7B-sw2Q&s" alt="Sahumerio de Lavanda">
+      <div class="card-content">
+        <h3>Lavanda</h3>
+        <p>Perfecto para relajar y conciliar el sueño.</p>
+        <div class="price">$750</div>
+        <button class="btn" onclick="agregarAlCarrito('Lavanda', 750)">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://s3i.nyc3.cdn.digitaloceanspaces.com/v1/product/101WB/galeria/uee1T75dTvRRBAJtT0lptGFz0JN00GwlMGy0Xjii.webp" alt="Sahumerio de Palo Santo">
+      <div class="card-content">
+        <h3>Palo Santo</h3>
+        <p>Purifica ambientes y eleva la energía.</p>
+        <div class="price">$900</div>
+        <button class="btn" onclick="agregarAlCarrito('Palo Santo', 900)">Agregar al carrito</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://s3i.nyc3.cdn.digitaloceanspaces.com/v1/product/101WB/galeria/uee1T75dTvRRBAJtT0lptGFz0JN00GwlMGy0Xjii.webp" alt="Sahumerio de Palo Santo">
+      <div class="card-content">
+        <h3>Palo Santo</h3>
+        <p>Purifica ambientes y eleva la energía.</p>
+        <div class="price">$900</div>
+        <button class="btn" onclick="agregarAlCarrito('Palo Santo', 900)">Agregar al carrito</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Carrito -->
+  <div id="carrito">
+    <h2>🛒 Carrito de compras</h2>
+    <table id="items">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="carrito-body"></tbody>
+    </table>
+    <div id="total">Total: $0</div>
+  </div>
+
+  <footer>
+    © 2025 - Catálogo de Sahumerios. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    let carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      const item = carrito.find(p => p.nombre === nombre);
+      if (item) {
+        item.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
+      actualizarCarrito();
+    }
+
+    function eliminarDelCarrito(nombre) {
+      carrito = carrito.filter(p => p.nombre !== nombre);
+      actualizarCarrito();
+    }
+
+    function cambiarCantidad(nombre, delta) {
+      const item = carrito.find(p => p.nombre === nombre);
+      if (item) {
+        item.cantidad += delta;
+        if (item.cantidad <= 0) {
+          eliminarDelCarrito(nombre);
+        }
+      }
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const tbody = document.getElementById("carrito-body");
+      tbody.innerHTML = "";
+
+      let total = 0;
+      carrito.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.nombre}</td>
+          <td>${item.cantidad}</td>
+          <td>$${item.precio}</td>
+          <td>$${item.precio * item.cantidad}</td>
+          <td>
+            <button class="btn" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
+            <button class="btn" onclick="cambiarCantidad('${item.nombre}', -1)">-</button>
+            <button class="btn" onclick="eliminarDelCarrito('${item.nombre}')">Eliminar</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+        total += item.precio * item.cantidad;
+      });
+
+      document.getElementById("total").textContent = `Total: $${total}`;
+    }
+  </script>
+</body>
+</html>
